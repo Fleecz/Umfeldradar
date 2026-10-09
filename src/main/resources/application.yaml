@@ -5,3 +5,7 @@ spring:
     url: jdbc:postgresql://localhost:5433/umfeldradar
     username: ${POSTGRES_USER}
     password: ${POSTGRES_PASSWORD}
+  jpa:
+    open-in-view: false
+    hibernate:
+      ddl-auto: validate
