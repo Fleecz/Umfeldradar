@@ -1,0 +1,9 @@
+ALTER TABLE users
+    ADD COLUMN display_name TEXT NOT NULL;
+ALTER TABLE users
+    ADD COLUMN active BOOLEAN NOT NULL DEFAULT TRUE;
+ALTER TABLE users
+    ALTER COLUMN password_hash DROP NOT NULL;
+ALTER TABLE users
+    ADD CONSTRAINT users_role_check
+        CHECK (role IN ('ADMIN', 'EXPERTE', 'AGENT'));
