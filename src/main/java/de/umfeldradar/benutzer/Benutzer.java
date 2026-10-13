@@ -1,16 +1,16 @@
 package de.umfeldradar.benutzer;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.EnumType;
-import jakarta.persistence.Enumerated;
-import jakarta.persistence.Id;
+import com.fasterxml.jackson.annotation.JsonSubTypes;
+import jakarta.persistence.*;
+import org.jspecify.annotations.Nullable;
+
 import java.util.UUID;
-import jakarta.persistence.Table;
 
 @Entity
 @Table(name= "users")
 public class Benutzer {
     @Id
+    @GeneratedValue(strategy = GenerationType.UUID)
     private UUID id;
     private String email;
     private String passwordHash;
@@ -19,6 +19,31 @@ public class Benutzer {
     private String displayName;
     private boolean active;
     public Benutzer(){
+    }
+    public Benutzer(boolean active, String email, String passwordHash, Role role, String displayName) {
+        this.active = active;
+        this.email = email;
+        this.passwordHash = passwordHash;
+        this.role = role;
+        this.displayName = displayName;
+    }
+    public UUID getId() {
+        return id;
+    }
 
+    public boolean isActive() {
+        return active;
+    }
+
+    public Role getRole(){
+        return role;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public @Nullable String getPasswordHash() {
+        return passwordHash;
     }
 }
