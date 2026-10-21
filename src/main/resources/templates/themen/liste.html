@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang ="de" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset ="UTF-8"/>
+    <title>Themen</title>
+</head>
+<body>
+    <h1>Themen</h1>
+    <ul>
+        <li th:each="thema : ${themen}">
+            <span th:text="${thema.titel}"></span>
+            <form th:if="${thema.status.name() == 'AKTIV'}" method="post" th:action="@{/admin/themen/{id}/archivieren(id=${thema.id})}">
+                <button type="submit">Archivieren</button>
+            </form>
+        </li>
+    </ul>
+    <form method="get" th:action="@{/admin/themen}">
+        <input type="text" name="suchtext" placeholder="Thema suchen">
+        <select name="pestel">
+            <option value="">Alle PESTEL-Optionen</option>
+            <option th:each="p : ${T(de.umfeldradar.thema.Pestel).values()}" th:value="${p}" th:text="${p}"></option>
+        </select>
+        <select name="herkunft">
+            <option value="">Alle Herkünfte</option>
+            <option th:each="h : ${T(de.umfeldradar.thema.Herkunft).values()}" th:value="${h}" th:text="${h}"></option>
+        </select>
+        <select name="status">
+            <option value="">Alle Status</option>
+            <option th:selected="${s == gewaehlterStatus}"  th:each="s : ${T(de.umfeldradar.thema.ThemaStatus).values()}" th:value="${s}" th:text="${s}"></option>
+        </select>
+        <button type="submit">Filtern</button>
+    </form>
+</body>
+</html>

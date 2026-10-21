@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="de" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Neues Thema</title>
+</head>
+<body>
+<h1>Neues Thema anlegen</h1>
+<form method="post" th:action="@{/admin/themen}">
+    <label>Titel</label>
+    <input type="text" name="titel" required>
+    <label>Cluster</label>
+    <input type="text" name="cluster">
+    <label>Beschreibung</label>
+    <textarea name="beschreibung" required></textarea>
+    <label>Chancen</label>
+    <textarea name="chancen" required></textarea>
+    <label>Risiken</label>
+    <textarea name="risiken" required></textarea>
+    <select name ="pestel" required>
+        <option value="">Pestel wählen</option>
+        <option th:each="h : ${T(de.umfeldradar.thema.Pestel).values()}" th:value="${h}" th:text="${h}"></option>
+    </select>
+    <select name="herkunft" required>
+        <option value="">Herkunft setzen</option>
+        <option th:each="h : ${T(de.umfeldradar.thema.Herkunft).values()}" th:value="${h}" th:text="${h}"></option>
+    </select>
+    <button type="submit">Anlegen</button>
+</form>
+</body>
+</html>
