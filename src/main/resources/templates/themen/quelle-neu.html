@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="de" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Neues Quelle</title>
+</head>
+<body>
+<h1>Neues Quelle hinzufügen</h1>
+<form method="post" th:action="@{/admin/themen/{id}/quellen(id=${thema.id})}">
+    <label>Titel</label>
+    <input type="text" name="titel" required>
+    <input type="url" name="url"  required>
+    <input type="text" name="herausgeber" required>
+    <input type="date" name="abrufdatum" required>
+    <button type="submit">Anlegen</button>
+</form>
+</body>
+</html>

@@ -2,16 +2,18 @@ package de.umfeldradar.thema;
 
 import org.springframework.stereotype.Service;
 import java.net.URI;
-
 import java.time.LocalDate;
+import java.util.List;
 
 @Service
 public class QuelleService {
+    private final ThemaService themaService;
     private final QuelleRepository quelleRepository;
     private final EinstellungRepository einstellungRepository;
-    public QuelleService(QuelleRepository quelleRepository, EinstellungRepository einstellungRepository) {
+    public QuelleService(QuelleRepository quelleRepository, EinstellungRepository einstellungRepository, ThemaService themaService) {
         this.quelleRepository = quelleRepository;
         this.einstellungRepository = einstellungRepository;
+        this.themaService = themaService;
     }
     public Quelle anlegen(Thema thema, String url, String titel, String herausgeber, LocalDate abrufdatum) {
         Einstellung einstellung = einstellungRepository
@@ -30,5 +32,8 @@ public class QuelleService {
         }
         Quelle quelle = new Quelle(thema, url, titel, herausgeber, abrufdatum);
         return quelleRepository.save(quelle);
+    }
+    public List<Quelle> findByTopic(Thema thema){
+        return quelleRepository.findByThema(thema);
     }
 }

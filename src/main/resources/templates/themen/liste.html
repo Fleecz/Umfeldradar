@@ -9,6 +9,8 @@
     <ul>
         <li th:each="thema : ${themen}">
             <span th:text="${thema.titel}"></span>
+            <a th:href="@{/admin/themen/{id}/bearbeiten(id=${thema.id})}">Bearbeiten</a>
+            <a th:href="@{/admin/themen/{id}/quellen(id=${thema.id})}">Quellen anzeigen</a>
             <form th:if="${thema.status.name() == 'AKTIV'}" method="post" th:action="@{/admin/themen/{id}/archivieren(id=${thema.id})}">
                 <button type="submit">Archivieren</button>
             </form>

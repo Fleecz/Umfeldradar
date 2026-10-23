@@ -46,4 +46,7 @@ public class ThemaService {
         }
         return themaRepository.findAll(spec);
     }
+    public Thema findbyID(UUID id) {
+        return themaRepository.findById(id).orElseThrow();
+    }
 }

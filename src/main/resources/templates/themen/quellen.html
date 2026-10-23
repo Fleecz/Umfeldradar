@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="de" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Quellen des Themas:</title>
+</head>
+<body>
+<h1>Quellen des Themas:</h1>
+<a th:href="@{/admin/themen/{id}/quellen/neu(id=${thema.id})}">Neue Quelle hinzufügen</a>
+<ul>
+    <li th:each="quelle : ${quellen}">
+        <span th:text="${quelle.titel}"></span>
+        <span th:text="${quelle.herausgeber}"></span>
+        <a th:href="${quelle.url}" th:text="${quelle.url}" target="_blank" rel="noopener noreferrer"></a>
+    </li>
+</ul>
+</body>
+</html>

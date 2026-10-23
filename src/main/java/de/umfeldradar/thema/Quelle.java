@@ -25,4 +25,13 @@ public class Quelle {
         this.herausgeber = herausgeber;
         this.abrufdatum = abrufdatum;
     }
+    public String getTitel() {
+        return titel;
+    }
+    public String getHerausgeber() {
+        return herausgeber;
+    }
+    public String getUrl() {
+        return url;
+    }
 }
