@@ -72,6 +72,21 @@ public class Thema {
     public ThemaStatus getStatus() {
         return status;
     }
+    public String getBeschreibung() {
+        return beschreibung;
+    }
+    public Pestel getPestel() {
+        return pestel;
+    }
+    public String getChancen() {
+        return chancen;
+    }
+    public String getRisiken() {
+        return risiken;
+    }
+    public String getCluster() {
+        return cluster;
+    }
     public void aktualisieren(String titel, String cluster, String beschreibung, String chancen, String risiken, Pestel pestel){
         setzeInhalte(titel, cluster, beschreibung, chancen, risiken, pestel);
     }

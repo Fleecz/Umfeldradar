@@ -6,6 +6,7 @@
 </head>
 <body>
     <h1>Themen</h1>
+    <a th:href="@{/admin/themen/neu}">Neues Thema anlegen</a>
     <ul>
         <li th:each="thema : ${themen}">
             <span th:text="${thema.titel}"></span>

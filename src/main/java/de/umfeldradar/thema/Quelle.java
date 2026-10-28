@@ -34,4 +34,7 @@ public class Quelle {
     public String getUrl() {
         return url;
     }
+    public UUID getId() {
+        return id;
+    }
 }

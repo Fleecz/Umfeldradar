@@ -5,6 +5,13 @@
     <title>Quellen des Themas:</title>
 </head>
 <body>
+<nav aria-label="Seitennavigation">
+    <a th:href="@{/admin/themen}">Zur Themenübersicht</a>
+    |
+    <a th:href="@{/admin/themen/{id}/bearbeiten(id=${thema.id})}">
+        Thema bearbeiten
+    </a>
+</nav>
 <h1>Quellen des Themas:</h1>
 <a th:href="@{/admin/themen/{id}/quellen/neu(id=${thema.id})}">Neue Quelle hinzufügen</a>
 <ul>
